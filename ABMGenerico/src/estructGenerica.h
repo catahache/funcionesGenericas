@@ -23,8 +23,14 @@ typedef struct{
 
 }eGenerica;
 
+//INICIALIZAR
+
 //hacer tantas como estructuras haya
 int inicializarG(eGenerica listaG[], int tamG);
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//BUSCAR
 
 //hacer tantas como estructuras haya
 int buscarLibre(eGenerica listaG[], int tamG);
@@ -32,11 +38,22 @@ int buscarLibre(eGenerica listaG[], int tamG);
 //hacer tantas como estructuras haya
 int buscarGenericoPorId(int id, eGenerica listaG[], int tamG);
 
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//MOSTRAR
+
 //hacer tantas como estructuras haya
 void mostrarGenerico(eGenerica generico, eTipoG listaT[], int tamT);
 
 //hacer tantas como estructuras haya
 void mostrarGenericos(eGenerica listaG[], eTipoG listaT[], int tamT);
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//ORDENAR
+
+//agrupar por tipo y ordenar por apellido (tipos 1, 2, 3, 4)
+int ordenarGenericos(eGenerica listaG[], int tamG, int orden);
 
 
 #endif /* ESTRUCTGENERICA_H_ */

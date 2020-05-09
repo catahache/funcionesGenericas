@@ -14,6 +14,9 @@
 //EN ESTE EJEMPLO, SOLO HAY UNA ESTRUCTURA
 //EN EL CASO DE QUE HAYA MAS ESTRUCTURAS, HACER UNA DE CADA UNA DE ESTAS FUNCIONES POR CADA ESTRUCTURA CREADA! (COLOCAR EN SU RESPECTIVA LIBRERIA)
 
+
+//INICIALIZAR
+
 //hacer tantas como estructuras haya
 int inicializarG(eGenerica listaG[], int tamG)
 {
@@ -30,6 +33,9 @@ int inicializarG(eGenerica listaG[], int tamG)
 		return -1;
 	}
 }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//BUSCAR
 
 //hacer tantas como estructuras haya
 int buscarLibre(eGenerica listaG[], int tamG)
@@ -64,6 +70,10 @@ int buscarGenericoPorId(int id, eGenerica listaG[], int tamG)
 	return indice;
 }
 
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//MOSTRAR
+
 //hacer tantas como estructuras haya
 void mostrarGenerico(eGenerica generico, eTipoG listaT[], int tamT)
 {
@@ -84,4 +94,51 @@ void mostrarGenericos(eGenerica listaG[], eTipoG listaT[], int tamT)
 			mostrarGenerico(listaG[i], listaT, tamT);
 		}
 	}
+}
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+//ORDENAR
+
+//agrupar por tipo y ordenar por apellido (tipos 1, 2, 3, 4)
+int ordenarGenericos(eGenerica listaG[], int tamG, int orden)
+{
+	int isOk = -1;
+	eGenerica auxGenerico;
+
+	if(listaG != NULL)
+	{
+		for(int i = 0; i < tamG -1; i++)
+		{
+			for(int j = i + 1; j < tamG; j ++)
+			{
+				if(listaG[i].isEmpty == 0 && listaG[j].isEmpty == 0) //solo hace el burbujeo si no estan vacias las posiciones
+				{
+
+					if(orden == 1)
+					{
+						if(listaG[i].idTipo > listaG[j].idTipo || (listaG[i].idTipo == listaG[j].idTipo && (strcmp(listaG[i].apellido, listaG[j].apellido)) > 0)) //de menor a mayor sector (agrupa) y apellido (ordena)
+						{
+							auxGenerico = listaG[i];
+							listaG[i] = listaG[j];
+							listaG[j] = auxGenerico;
+						}
+
+					}
+					else if(orden == 0)
+					{
+						if(listaG[i].idTipo < listaG[j].idTipo || (listaG[i].idTipo == listaG[j].idTipo && (strcmp(listaG[i].apellido, listaG[j].apellido)) < 0)) //de mayor a menor sector (agrupa) y apellido (ordena)
+						{
+							auxGenerico = listaG[i];
+							listaG[i] = listaG[j];
+							listaG[j] = auxGenerico;
+						}
+
+					}//else if
+				}//if isEmpty
+			}//for
+		}//for
+		isOk = 0;
+	}//if list != NULL
+	return isOk;
 }
