@@ -15,6 +15,7 @@
 #include "menusABM.h"
 #include "estructGenerica.h"
 #include "estructTipo.h"
+//#include "dataWarehouse.h" //harcodeo
 
 #define LENG 50 //largo vector generico
 #define LENT 4 //largo vector tipo
@@ -28,7 +29,8 @@ int main(void) {
 
 	char continueS = 's';
 	char confirm;
-	//Ids:
+
+	//Ids, crear tantos como estructuras existan:
 	int nextIdG = 1000; //arranca en el 1000
 
 	//Flags Alta:
@@ -39,7 +41,8 @@ int main(void) {
 
 	/*
 	HARCODEAR
-	harcodear(listaG, 13);
+	harcodearGenerico(listaG, 13);
+	//para harcodear mas estructuras, crear la estructura y crear la funcion de harcodeo para la funcion especifica
 	*/
 
 	do

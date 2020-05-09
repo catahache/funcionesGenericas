@@ -8,6 +8,8 @@
 #ifndef DATAWAREHOUSE_H_
 #define DATAWAREHOUSE_H_
 
+#include "estructGenerica.h"
+
 //HACER TANTAS FUNCIONES COMO ESTRUCTURAS A HARCODEAR:
 
 void harcodearGenerico(eGenerica listaG[], int cant);

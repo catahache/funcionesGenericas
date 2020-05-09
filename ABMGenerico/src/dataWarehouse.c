@@ -5,7 +5,9 @@
  *      Author: catalina
  */
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "dataWarehouse.h"
 #include "estructGenerica.h"
 #include "estructTipo.h"
