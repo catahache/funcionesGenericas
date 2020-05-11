@@ -22,10 +22,10 @@
 
 int main(void) {
 	eGenerica listaG[LENG];
-	eTipoG listaT[LENT] =  {{1, ""},
-							{2, ""},
-							{3, ""},
-							{4, ""} };
+	eTipoG listaT[LENT] =  {{1, "AAA"},
+							{2, "BBB"},
+							{3, "CCC"},
+							{4, "DDD"} };
 
 	char continueS = 's';
 	char confirm;
@@ -63,7 +63,7 @@ int main(void) {
 				break;
 
 			case 4:
-				//Informes
+				//Listas
 				break;
 
 			case 5:

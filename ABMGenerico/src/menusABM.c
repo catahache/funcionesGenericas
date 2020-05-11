@@ -140,17 +140,26 @@ void baja(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int tamT)
 			switch(menuBajas())
 			{
 				case 1:
-					utn_getEntero(&idG, 3, "Ingrese el id del generico a eliminar: ", "Error,id no valido.\n", 1000, 1050);
-					if(bajaGenerico(idG, flagG, listaG, tamG, listaT, tamT)  == 1)
+					if(flagG == 1)
 					{
-						printf("Se ha eliminado el generico con exito.\n\n");
+						mostrarGenericos(listaG, tamG, listaT, tamT); //muestra las posibilidades a eliminar
+						utn_getEntero(&idG, 3, "Ingrese el id del generico a eliminar: ", "Error,id no valido.\n", 1000, 1050);
+						if(bajaGenerico(idG, flagG, listaG, tamG, listaT, tamT)  == 1)
+						{
+							printf("Se ha eliminado el generico con exito.\n\n");
+						}
 					}
+					else
+					{
+						printf("Error. No hay genericos cargados.\n");
+					}
+
 					break;
 				case 2:
-					//cargar baja de otra cosa
+					//cargar baja de otra cosa validada con otro flag (agregarlo al prototipo de la funcion)
 					break;
 				case 3:
-					//cargar baja de otra cosa
+					//cargar baja de otra cosa validada con otro flag (agregarlo al prototipo de la funcion)
 					break;
 				case 4:
 					system("clear");
@@ -208,13 +217,20 @@ void modificacion(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int 
 			switch(menuModif())
 			{
 				case 1:
-					modificacionGenerica(flagG, listaG, tamG, listaT, tamT);
+					if(flagG == 1)
+					{
+						modificacionGenerica(flagG, listaG, tamG, listaT, tamT);
+					}
+					else
+					{
+						printf("Error. No hay genericos cargados.\n");
+					}
 					break;
 				case 2:
-					//cargar modificacion de otra estructura
+					//cargar modificacion de otra estructura validada con otro flag (agregarlo al prototipo de la funcion)
 					break;
 				case 3:
-					//cargar modificacion de otra estructura
+					//cargar modificacion de otra estructura validada con otro flag (agregarlo al prototipo de la funcion)
 					break;
 				case 4:
 					system("clear");
@@ -237,8 +253,54 @@ void modificacion(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int 
 
 
 
+//LISTAS:
+int menuListas()
+{
+	int opcion;
 
+	system("clear");
+	printf("***** Listar *****\n");
+	printf("1. Generico\n");
+	printf("2. \n");
+	printf("3. \n");
+	printf("4. Salir\n\n");
+	utn_getEntero(&opcion, 3, "Ingrese la opcion elegida: ", "Error, no es una opcion valida.\n", 1, 4);
 
+	return opcion;
+}
+
+//esta es la funcion que llamo en main para listar:
+void listar(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int tamT)
+{
+	switch(menuListas())
+	{
+		case 1:
+			if(flagG == 1)
+			{
+				//Ascendente o descendente? :
+				//listaGenerica();
+				mostrarGenericos(listaG, tamG, listaT, tamT);
+			}
+			else
+			{
+				printf("Error. No hay genericos cargados.\n");
+			}
+			break;
+		case 2:
+			//cargar lista de otra estructura validada con otro flag (agregarlo al prototipo de la funcion)
+			break;
+		case 3:
+			//cargar lista de otra estructura validada con otro flag (agregarlo al prototipo de la funcion)
+			break;
+		case 4:
+			//cargar lista de otra estructura validada con otro flag (agregarlo al prototipo de la funcion)
+			break;
+		default:
+			printf("No es una opcion valida.\n");
+
+	}
+
+}
 
 
 
@@ -430,4 +492,52 @@ int modificacionGenerica(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[
 
 	return isOk;
 }
+
+
+int listaGenerica(eGenerica listaG[], int tamG, int orden)
+{
+	int todoOk = -1;
+
+	eGenerica auxGenerico;
+
+	if(listaG != NULL && listaG != NULL)
+	{
+		for(int i = 0; i < tamG -1; i++)
+		{
+			for(int j = i + 1; j < tamG; j ++)
+			{
+				todoOk = 0;
+
+				if(listaG[i].isEmpty == 0 && listaG[j].isEmpty == 0) //solo hace el burbujeo si no estan vacias las posiciones
+				{
+
+					if(orden == 1)
+					{
+						if(listaG[i].idTipo > listaG[j].idTipo || (listaG[i].idTipo == listaG[j].idTipo && (strcmp(listaG[i].nombre, listaG[j].nombre)) > 0)) //de menor a mayor sector (agrupa) y apellido (ordena)
+						{
+							auxGenerico = listaG[i];
+							listaG[i] = listaG[j];
+							listaG[j] = auxGenerico;
+						}
+
+					}
+					else if(orden == 0)
+					{
+						if(listaG[i].idTipo < listaG[j].idTipo || (listaG[i].idTipo == listaG[j].idTipo && (strcmp(listaG[i].nombre, listaG[j].nombre)) < 0)) //de mayor a menor sector (agrupa) y apellido (ordena)
+						{
+							auxGenerico = listaG[i];
+							listaG[i] = listaG[j];
+							listaG[j] = auxGenerico;
+						}
+
+					}//else if
+				}//if isEmpty
+			}//for
+		}//for
+
+	}//if list != NULL
+
+	return todoOk;
+}
+
 

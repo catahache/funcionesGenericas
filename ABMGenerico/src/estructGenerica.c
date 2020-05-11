@@ -84,10 +84,10 @@ void mostrarGenerico(eGenerica generico, eTipoG listaT[], int tamT)
 }
 
 //hacer tantas como estructuras haya
-void mostrarGenericos(eGenerica listaG[], eTipoG listaT[], int tamT)
+void mostrarGenericos(eGenerica listaG[], int tamG, eTipoG listaT[], int tamT)
 {
 	printf("ID    Nombre    Apellido    Edad     Tipo\n\n");
-	for(int i = 0; i < tamT; i++)
+	for(int i = 0; i < tamG; i++)
 	{
 		if(listaG[i].isEmpty == 0)
 		{

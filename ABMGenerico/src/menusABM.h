@@ -45,6 +45,14 @@ void modificacion(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int 
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
+//MENU LISTAS:
+
+int menuListas();
+
+//esta es la funcion que llamo en main para modificar:
+void listar(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int tamT);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES AUXILIARES A LOS MENUS.
 
 //Hacer un alta por cada estructura
@@ -55,5 +63,8 @@ int bajaGenerico(int idG, int flagG, eGenerica listaG[], int tamG, eTipoG listaT
 
 //Hacer una modificacion por cada estructura
 int modificacionGenerica(int flagG, eGenerica listaG[], int tamG, eTipoG listaT[], int tamT);
+
+//Hacer una lista por cada estructura
+int listaGenerica(eGenerica listaG[], int tamG, int orden);
 
 #endif /* MENUSABM_H_ */

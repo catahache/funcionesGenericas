@@ -46,7 +46,7 @@ int buscarGenericoPorId(int id, eGenerica listaG[], int tamG);
 void mostrarGenerico(eGenerica generico, eTipoG listaT[], int tamT);
 
 //hacer tantas como estructuras haya
-void mostrarGenericos(eGenerica listaG[], eTipoG listaT[], int tamT);
+void mostrarGenericos(eGenerica listaG[], int tamG, eTipoG listaT[], int tamT);
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------

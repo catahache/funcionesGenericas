@@ -37,7 +37,7 @@ int mostrarTipos(eTipoG tipos[], int tamT)
 	if(tipos != NULL)
 	{
 		isOk = 1;
-		printf("***** Tipos *****\n");
+		printf("*** Tipos ***\n");
 		printf("  ID     Descripcion\n\n");
 
 		for(int i = 0; i < tamT; i++)
